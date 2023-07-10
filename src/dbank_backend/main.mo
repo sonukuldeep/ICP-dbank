@@ -14,8 +14,11 @@ actor DBank {
   };
 
   public func withdraw(amount : Nat) {
-    currentValue -= amount;
-    Debug.print(debug_show (currentValue));
+    let tempValue : Int = currentValue - amount;
+    if (currentValue >= amount) {
+      currentValue -= amount;
+      Debug.print(debug_show (currentValue));
+    };
   }
 
   // topUp();

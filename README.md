@@ -19,3 +19,14 @@
 - Or use candid ui.
 - Get local dfinity server canister id:- dfx canister id __Candid_UI
 - get program canister id:- dfx canister id &lt;canister name&gt;
+
+## Lesson:- 421
+## Key points in this lesson
+
+- Int stands for integer number.  
+- Function syntax:-
+```rust
+if(x > 10) {
+  Debug.print('hello');
+}
+```
