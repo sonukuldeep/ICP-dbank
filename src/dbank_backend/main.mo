@@ -8,6 +8,11 @@ actor DBank {
   stable var currentValue : Float = 300; // stable variable
   stable var startTime = Time.now();
 
+  public func reset() : async () {
+    currentValue := 300;
+    startTime := Time.now();
+  };
+
   Debug.print(debug_show (currentValue));
   Debug.print(debug_show (startTime));
 
@@ -33,7 +38,11 @@ actor DBank {
     let currentTime = Time.now();
     let timeElapsedNS = currentTime - startTime;
     let timeElapsedS = timeElapsedNS / 1000000000;
-    currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS));
-    startTime := currentTime;
+    if (timeElapsedS < 60) {
+      Debug.print("Cannot call compound so frequently. Skipping...")
+    } else {
+      currentValue := currentValue * (1.01 ** Float.fromInt(timeElapsedS));
+      startTime := currentTime;
+    };
   };
 };

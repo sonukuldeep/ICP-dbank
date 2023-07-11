@@ -1,19 +1,37 @@
 import { dbank_backend } from "../../declarations/dbank_backend";
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const button = e.target.querySelector("button");
+async function checkBalance() {
+  const balance = await dbank_backend.checkBalance()
+  document.querySelector('#value').innerText = balance.toFixed(2)
+}
 
-  const name = document.getElementById("name").value.toString();
+window.addEventListener('load', checkBalance)
 
-  button.setAttribute("disabled", true);
+async function submitHandler(e) {
+  e.preventDefault()
+  const form = e.target;
+  const formData = new FormData(form)
+  const submitBtn = form.querySelector('#submit-btn')
+  try {
+    const topUp = Number(formData.get('topUp'))
+    const withDraw = Number(formData.get('withdraw'))
+    submitBtn.setAttribute('disabled', true)
+    if (topUp !== 0)
+      await dbank_backend.topUp(topUp)
 
-  // Interact with foo actor, calling the greet method
-  const greeting = await dbank_backend.greet(name);
+    if (withDraw !== 0)
+      await dbank_backend.withdraw(withDraw)
 
-  button.removeAttribute("disabled");
+  } catch (error) {
+    console.log('something went wrong, ', error.message)
+  } finally {
+    await dbank_backend.compound()
+    checkBalance()
+    setTimeout(() => {
+      submitBtn.removeAttribute('disabled')
+    }, 1000 * 60)
+    form.reset()
+  }
+}
 
-  document.getElementById("greeting").innerText = greeting;
-
-  return false;
-});
+document.querySelector('form').addEventListener('submit', submitHandler)
