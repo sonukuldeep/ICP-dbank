@@ -18,7 +18,7 @@ git clone
 
 Instructions
 ```bash
-  cd project-directory
+cd project-directory
 ```
 
 Start IC instance on seperate terminal
@@ -44,21 +44,21 @@ npm start
 In the browser open
 
 ```bash
-  http://localhost:8080/
+http://localhost:8080/
 ```
 
 ## Lesson:- 419
-### Key points in this lesson
-- var keyword is used to store variables. Ex: `var x = 100;`
+#### Key points in this lesson
+- var# keyword is used to store variables. Ex: `var x = 100;`
 - To re-assign something we use:- `x := 200;`
 - Note the semi-colon at the end of each command
-- let keyword is used to store constants `let y = 14141453645767858`
+- let# keyword is used to store constants `let y = 14141453645767858`
 - Constants cannot be changed
 - Debug module is used to output to console example:- `Debug.print('Hello');`
 - To print numbers we use:- `Debug.print(debug_show(x));`
 
 ## Lesson:- 420
-## Key points in this lesson
+### Key points in this lesson
 
 - Nat stands for natural number.  
 - Function are by default private
@@ -68,7 +68,7 @@ In the browser open
 - get program canister id:- dfx canister id &lt;canister name&gt;
 
 ## Lesson:- 421
-## Key points in this lesson
+### Key points in this lesson
 
 - Int stands for integer number.  
 - if statement syntax:-
@@ -79,7 +79,7 @@ if(x > 10) {
 ```
 
 ## Lesson:- 422
-## Key points in this lesson
+### Key points in this lesson
 
 - IC has two types of functions/methods  
 - Non-committing query calls (any state change is discarded).
@@ -93,7 +93,7 @@ Syntax:-
   };
 ```
 
-| Type | Key points to remember |
+| Type |# Key points to remember |
 | -------------- | -------------- |
 | Query calls | Update calls |
 | Allow the user to query the current state of a canister or call a function that operates on the canister’s state without changing it. | Allow the user to change the state of the canister and have changes persisted. |
@@ -104,7 +104,7 @@ Syntax:-
 
 
 ## Lesson:- 423
-## Key points in this lesson
+### Key points in this lesson
 ### Orthogonal persistence
 The Internet Computer persists the memory and other state of your canister as it executes. Thus the state of a Motoko actor, including its in-memory data structures, survive indefinitely. Actor state does not need to be explicitly "restored" and "saved" to external storage, with every message.
 
@@ -127,8 +127,7 @@ actor Counter {
 Because value was declared stable, the current state, n, of the service is retained after the upgrade. Counting will continue from n, not restart from 0.
 
 ## Lesson:- 424
-## Key points in this lesson
-lesson code
+### Lesson code
 ```rust
 import Debug "mo:base/Debug";
 import Time "mo:base/Time";
@@ -172,7 +171,7 @@ actor DBank {
 ```
 
 ## Lesson:- 426
-## Code from the lesson
+### Code from the lesson
 main.mo
 ```rust
 import Debug "mo:base/Debug";
