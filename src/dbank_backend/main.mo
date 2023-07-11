@@ -19,7 +19,9 @@ actor DBank {
       currentValue -= amount;
       Debug.print(debug_show (currentValue));
     };
-  }
+  };
 
-  // topUp();
+  public query func checkBalance() : async Nat {
+    return currentValue;
+  };
 };
