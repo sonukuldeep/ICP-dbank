@@ -54,3 +54,27 @@ Syntax:-
 | Can be made to any node that holds the canister; the result does not go through consensus. That is, there is an inherent tradeoff between security and performance: the reply from a single node is fast, but might be untrustworthy or inaccurate. | Must pass through consensus to return the result. Because consensus is required, changing the state of a canister, and returning the result can take time. There is an inherent tradeoff between security and performance: the result is trustworthy because two-thirds of the replicas in a subnet must agree on the result, but the call is slow. |
 | Do not allow changes to the state of the canister to be persisted, so essentially query calls are read-only operations. | The called canister can invoke functions exposed by other canisters |
 | Do not allow the called canister to invoke functions exposed by other canisters as inter-canister calls. (Note that this restriction is temporary and that canisters will be able to invoke functions exposed by other canisters when processing query calls in the future.) |  |
+
+
+## Lesson:- 423
+## Key points in this lesson
+### Orthogonal persistence
+The Internet Computer persists the memory and other state of your canister as it executes. Thus the state of a Motoko actor, including its in-memory data structures, survive indefinitely. Actor state does not need to be explicitly "restored" and "saved" to external storage, with every message.
+
+### Upgrades
+Motoko provides numerous features to help you leverage orthogonal persistence, including language features that allow you to retain a canister’s data as you upgrade the code of the canister.
+
+For example, Motoko lets you declare certain variables as stable. The values of stable variables are automatically preserved across canister upgrades.
+Example: 
+```rust
+actor Counter {
+
+  stable var value = 0;
+
+  public func inc() : async Nat {
+    value += 1;
+    return value;
+  };
+}
+```
+Because value was declared stable, the current state, n, of the service is retained after the upgrade. Counting will continue from n, not restart from 0.
