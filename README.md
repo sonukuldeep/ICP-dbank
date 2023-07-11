@@ -1,4 +1,51 @@
-# dbank
+# DBANK
+*some Lessons do not have related docs here since those lesson involved IC setup or backend, frontend setup etc
+
+A heartly thanks to Angella yu. This repo follows her web development course on udemy.
+
+## Acknowledgements
+ - Angella Yu
+ - Motoko docs
+ - My brain
+
+## Installation
+The project requires node js and git.
+
+Clone the website using
+```npm
+git clone 
+```
+
+Instructions
+```bash
+  cd project-directory
+```
+
+Start IC instance on seperate terminal
+```bash
+dfx start
+```
+
+Install packages
+```bash
+npm i
+```
+
+Deploy canister
+```bash
+dfx deploy
+```
+
+Start frontend
+```bash
+npm start
+```
+
+In the browser open
+
+```bash
+  http://localhost:8080/
+```
 
 ## Lesson:- 419
 ### Key points in this lesson
@@ -229,3 +276,20 @@ actor DBank {
   };
 };
 ```
+
+## Badges
+
+[![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/) 
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+
+
+## Author
+- [@sonukuldeep](https://www.github.com/sonukuldeep)
+
+
+## 🛠 Skills
+
+[![My Skills](https://skillicons.dev/icons?i=js,ts,html,css,tailwind,sass,nodejs,react,nextjs,svelte,vue,flask,rust,python,php,solidity,mongodb,mysql,prisma,figma,threejs,unity,godot)](https://github.com/sonukuldeep)
+
+please open an issue if you need help 
